@@ -4,7 +4,6 @@
 import React from 'react';
 import axios from "axios";
 import Movie from "./Movie";
-import styled, {createGlobalStyle} from "styled-components";
 import "./App.css";
 
 
@@ -19,11 +18,9 @@ class App extends React.Component{
     const {data : {data : {movies}}} = await axios.get("https://yts-proxy.nomadcoders1.now.sh/list_movies.json?sort_by=download_count");
     this.setState({movies : movies,
     isLoading: false});
-    console.log(movies);
   }
-  async componentDidMount(){
+  componentDidMount(){
       this.getMovies();
-      // console.log(this.movies);
     }
   
   render(){
@@ -35,7 +32,7 @@ class App extends React.Component{
         <span className="loader__text">Loading...</span>
       </div>
       ) : ( 
-      <div>
+      <div className="movies">
         {movies.map(movie=>{
         return (
         < Movie 
@@ -55,24 +52,5 @@ class App extends React.Component{
     )
   }
 }
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: #f6e58d;
-  }
-`;
-const Button = styled.button`
-  border-radius: 50px;
-  padding: 5px;
-  min-width : 120px;
-  color: white;
-  font-weight : 600;
-  -webkit-appearance: none;
-  cursor: pointer;
-  &:active,
-  &:focus{
-    outline: none;
-  }
-  background-color: ${props=>(props.danger ? "red" : "black")}
-  `;
 
 export default App;
