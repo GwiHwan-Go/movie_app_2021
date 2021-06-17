@@ -6,11 +6,13 @@ import "../more_btn";
 
 function Movie({id, year, title, summary, poster, genres}){
     return ( 
-    <Link to={{
-        pathname :`detail/${id}`,
-        state :{id, year, title, summary, poster, genres},
-    }}>
-        <div className="movie">
+   
+    <div className="movie">
+        <Link to=
+            {{
+            pathname :`detail/${id}`,
+            state :{id, year, title, summary, poster, genres},
+        }}>
             <div className="imgAndgenre">
                 <img src={poster} alt={title}></img>
                 <ul className="movie__genres_list">
@@ -29,8 +31,8 @@ function Movie({id, year, title, summary, poster, genres}){
                 
                 
             </div>
-        </div>
-    </Link>
+        </Link>
+    </div>
     );
 }
 
