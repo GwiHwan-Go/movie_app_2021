@@ -18,8 +18,10 @@ function Movie({id, year, title, summary, poster, genres}){
         <div className="movie__data">
             <h3 className="movie__title">{title}</h3>
             <h5 className="movie__year">{year}</h5>
-            <span className="movie__summary">{summary.slice(0,140)},,,</span>
+            <span className="movie__summary">{summary.slice(0,140)},,,
             <button className="moreBtn">more</button>
+            </span>
+            
             
         </div>
     </div>
@@ -35,5 +37,4 @@ Movie.propTypes = {
     genres: propTypes.arrayOf(propTypes.string).isRequired,
 }
 
-console.log('btn');
 export default Movie;
