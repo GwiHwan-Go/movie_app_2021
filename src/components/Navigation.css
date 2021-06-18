@@ -1,0 +1,6 @@
+.nav_container{
+    display: flex;
+    background-color: black;
+    flex-direction: row;
+    justify-content: space-between;
+}
